@@ -1,0 +1,31 @@
+<style>
+  #wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<div id="wrap">
+  <m-overwrite-container id="overwrite">
+    <m-button id="refresh" style="--scale: 2; --contentSpacing: 9px"
+      >Refresh</m-button
+    >
+  </m-overwrite-container>
+</div>
+
+<script type="module">
+  let id = "$ID";
+  let options = window.screenOptions[id];
+  await new Promise((r) => setTimeout(r, 100));
+  options.document
+    .getElementById("overwrite")
+    .component.component.findAndApplyCascadingVars();
+
+  const refresh = options.document.getElementById("refresh");
+  refresh.addEventListener("click", () => {
+    location.reload();
+  });
+</script>
