@@ -19,7 +19,7 @@
 <script type="module">
   let id = "$ID";
   let options = window.screenOptions[id];
-  if (options.reload) location.reload();
+  if (options.refresh) location.reload();
   await new Promise((r) => setTimeout(r, 100));
   options.document
     .getElementById("overwrite")
